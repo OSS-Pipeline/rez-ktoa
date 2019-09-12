@@ -1,3 +1,4 @@
-# rez-ktoa
+rez-ktoa
+===
 
 Rez build configuration for KtoA.
