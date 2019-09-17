@@ -1,8 +1,11 @@
 #!/usr/bin/bash
 
-build_path=$1
-install_path=$2
-ktoa_version=$3
+# Will exit the Bash script the moment any command will itself exit with a non-zero status, thus an error.
+set -e
+
+EXTRACT_PATH=$1
+INSTALL_PATH=${REZ_BUILD_INSTALL_PATH}
+KTOA_VERSION=${REZ_BUILD_PROJECT_VERSION}
 
 # We print the arguments passed to the Bash script
 echo -e "\n"
@@ -11,16 +14,18 @@ echo -e "=== INSTALL ==="
 echo -e "==============="
 echo -e "\n"
 
-echo -e "[INSTALL][ARGS] BUILD PATH: ${build_path}"
-echo -e "[INSTALL][ARGS] KTOA VERSION: ${ktoa_version}"
+echo -e "[INSTALL][ARGS] EXTRACT PATH: ${EXTRACT_PATH}"
+echo -e "[INSTALL][ARGS] INSTALL PATH: ${INSTALL_PATH}"
+echo -e "[INSTALL][ARGS] KTOA VERSION: ${KTOA_VERSION}"
 
-cd $build_path
+cd ${EXTRACT_PATH}
 
-# We finally install KtoA
+# We install KtoA
 echo -e "\n"
-echo -e "[INSTALL] Installing KtoA-${ktoa_version}..."
+echo -e "[INSTALL] Installing KtoA-${KTOA_VERSION}..."
 
-cp -R ./* $install_path
+cp -R ./* ${INSTALL_PATH}
 
-echo -e "[INSTALL] Finished installing KtoA-${ktoa_version}!"
+echo -e "\n"
+echo -e "[INSTALL] Finished installing KtoA-${KTOA_VERSION}!"
 echo -e "\n"

@@ -19,6 +19,8 @@ variants = [
     ["platform-linux"]
 ]
 
+build_system = "cmake"
+
 with scope("config") as config:
     config.build_thread_count = "logical_cores"
 
