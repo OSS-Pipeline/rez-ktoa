@@ -3,6 +3,7 @@ name = "ktoa"
 version = "2.4.0.1"
 
 authors = [
+    "Solid Angle",
     "Autodesk"
 ]
 
@@ -12,7 +13,8 @@ description = \
     """
 
 requires = [
-    "cmake-3"
+    "cmake-3",
+    "katana-3.1+"
 ]
 
 variants = [
