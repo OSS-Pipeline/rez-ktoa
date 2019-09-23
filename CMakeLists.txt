@@ -4,7 +4,7 @@ include(RezBuild)
 include(RezRepository)
 include(ExternalProject)
 
-# 3Delight
+# KtoA
 rez_set_archive(
     KTOA_URL ktoa/KtoA-${REZ_BUILD_PROJECT_VERSION}-kat3.1-linux.tgz
     https://www.arnoldrenderer.com/arnold/download/product-download/?id=2940
