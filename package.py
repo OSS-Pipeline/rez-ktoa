@@ -1,6 +1,6 @@
 name = "ktoa"
 
-version = "2.4.0.1"
+version = "2.4.0.2"
 
 authors = [
     "Solid Angle",
@@ -13,8 +13,8 @@ description = \
     """
 
 requires = [
-    "cmake-3",
-    "katana-3.1+"
+    "cmake-3+",
+    "katana-3.2+"
 ]
 
 variants = [
@@ -26,9 +26,12 @@ build_system = "cmake"
 with scope("config") as config:
     config.build_thread_count = "logical_cores"
 
-#TODO: Use the SHA1 of the archive instead.
-uuid = "ktoa-2.4.0.1"
+uuid = "ktoa-{version}".format(version=str(version))
 
 def commands():
     env.PATH.prepend("{root}/bin")
     env.KATANA_RESOURCES.append("{root}")
+
+    # Helper environment variables.
+    env.KTOA_BINARY_PATH.set("{root}/bin")
+    env.KTOA_LIBRARY_PATH.set("{root}/bin:{root}/Libs")

@@ -18,11 +18,21 @@ echo -e "[INSTALL][ARGS] EXTRACT PATH: ${EXTRACT_PATH}"
 echo -e "[INSTALL][ARGS] INSTALL PATH: ${INSTALL_PATH}"
 echo -e "[INSTALL][ARGS] KTOA VERSION: ${KTOA_VERSION}"
 
-cd ${EXTRACT_PATH}
+# We check if the arguments variables we need are correctly set.
+# If not, we abort the process.
+if [[ -z ${EXTRACT_PATH} || -z ${INSTALL_PATH} || -z ${KTOA_VERSION} ]]; then
+    echo -e "\n"
+    echo -e "[INSTALL][ARGS] One or more of the argument variables are empty. Aborting..."
+    echo -e "\n"
+
+    exit 1
+fi
 
 # We install KtoA.
 echo -e "\n"
 echo -e "[INSTALL] Installing KtoA-${KTOA_VERSION}..."
+
+cd ${EXTRACT_PATH}
 
 cp -R ${EXTRACT_PATH}/* ${INSTALL_PATH}
 
